@@ -128,7 +128,7 @@ def create_chat_stream(
         ),
     ]
 
-    for msg in messages:
+    for msg in messages[-6:]:
         role = "model" if msg.get("role") == "assistant" else "user"
         contents.append(types.Content(role=role, parts=[types.Part(text=msg.get("content", ""))]))
 
