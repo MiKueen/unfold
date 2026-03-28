@@ -16,7 +16,7 @@ RULES:
 def build_full_context_prompt(documents: list[ProcessedDocument]) -> str:
     parts = ["=== FOLDER CONTENTS (ALL FILES) ===\n"]
     for doc in documents:
-        parts.append(f"--- FILE: {doc.file_path}/{doc.file_name} ({doc.mime_type}) ---")
+        parts.append(f"--- FILE: {doc.file_path}/{doc.file_name} ---")
         parts.append(doc.full_text)
         parts.append("")
     return "\n".join(parts)
