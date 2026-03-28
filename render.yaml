@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: unfold-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GOOGLE_GENERATIVE_AI_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+
+  - type: web
+    name: unfold-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_GOOGLE_CLIENT_ID
+        sync: false
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
