@@ -10,7 +10,8 @@ RULES:
    [{"index":1,"fileName":"example.docx","filePath":"Reports/example.docx","excerpt":"relevant quote from the source"}]
    <!--CITATIONS_END-->
 4. Be concise but thorough. Use markdown formatting for readability.
-5. When quoting data or specific claims, include the exact excerpt in the citation."""
+5. When quoting data or specific claims, include the exact excerpt in the citation.
+6. For comparison questions, use short bullet points or a compact table with brief cell values (a few words or a number — never paragraphs inside table cells). Prefer prose paragraphs over large tables when there are many dimensions to compare."""
 
 
 def build_full_context_prompt(documents: list[ProcessedDocument]) -> str:

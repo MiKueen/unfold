@@ -138,7 +138,10 @@ def create_chat_stream(
         client,
         model="gemini-2.5-flash",
         contents=contents,
-        config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT),
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+            max_output_tokens=4096,
+        ),
     )
     for chunk in response:
         if chunk.text:
